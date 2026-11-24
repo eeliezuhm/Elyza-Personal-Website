@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elyza's Personal Website</title>
+<style>
+:root{--ink:#4a1d36;--mute:#86566d;--p1:#ffc9de;--p2:#f79bbf;--p3:#e0558c;--p4:#b82d68;--cream:#fff8fb;--line:#f6c3d9;
+--sq:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q10 -2 20 6 T40 6' fill='none' stroke='%23e0558c' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+--star:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font:16px/1.6 "Segoe UI",Verdana,system-ui,sans-serif;position:relative;overflow-x:hidden;
+background:radial-gradient(ellipse at 0 0,#ffd0e2 0,transparent 45%),radial-gradient(ellipse at 100% 100%,#ffcfe1 0,transparent 50%),linear-gradient(180deg,#fff3f8,#ffe4ee)}
+.deco{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.st{position:absolute;background:var(--p2);clip-path:var(--star);opacity:.6;animation:tw 4s ease-in-out infinite}
+.sw{position:absolute;width:120px;height:12px;background:var(--sq) repeat-x;opacity:.55;animation:sway 6s ease-in-out infinite}
+@keyframes tw{0%,100%{transform:scale(.85) rotate(0)}50%{transform:scale(1.15) rotate(20deg)}}
+@keyframes sway{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+@media (prefers-reduced-motion:reduce){.st,.sw{animation:none}}
+.wrap{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:40px 20px 50px}
+.ribbon{position:relative;display:inline-block;background:var(--p3);color:#fff;font-weight:700;letter-spacing:.04em;padding:10px 38px;margin:0 22px;filter:drop-shadow(0 4px 0 rgba(120,20,70,.18))}
+.ribbon::before,.ribbon::after{content:"";position:absolute;top:10px;width:30px;height:100%;background:var(--p4);z-index:-1}
+.ribbon::before{left:-22px;clip-path:polygon(0 0,100% 0,100% 100%,0 100%,30% 50%)}
+.ribbon::after{right:-22px;clip-path:polygon(0 0,100% 0,70% 50%,100% 100%,0 100%)}
+.hero{text-align:center}
+h1{margin:26px 0 6px;font:italic 800 clamp(2.2rem,7vw,3.8rem)/1.1 Georgia,"Times New Roman",serif;color:var(--p4);text-shadow:3px 3px 0 #ffd5e5}
+h1 span{color:var(--ink)}
+.wave{height:12px;max-width:260px;margin:12px auto 24px;background:var(--sq) repeat-x}
+.about{display:flex;gap:20px;align-items:center;text-align:left;background:var(--cream);border:2px solid var(--line);border-radius:26px 8px 26px 8px;padding:20px 24px;box-shadow:8px 8px 0 var(--p1)}
+.badge{flex:none;width:92px;height:92px;background:var(--p3);clip-path:var(--star);display:grid;place-items:center;color:#fff;font:italic 800 1.9rem Georgia,serif;padding-top:8px}
+.about b{color:var(--p3);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+.about p{margin:2px 0 0;color:var(--mute)}
+.pick{text-align:center;font:italic 700 1.5rem Georgia,serif;margin:40px 0 20px;color:var(--p4)}
+.pick::before,.pick::after{content:"★";color:var(--p2);margin:0 12px;font-size:1rem}
+.list{display:flex;flex-direction:column;gap:20px;max-width:640px;margin:0 auto}
+.li{filter:drop-shadow(0 6px 0 rgba(184,45,104,.18));transition:transform .2s}
+.li:nth-child(odd){transform:rotate(-1deg);margin-right:36px}
+.li:nth-child(even){transform:rotate(1deg);margin-left:36px}
+.li:hover{transform:translateY(-4px) rotate(0)}
+.bar{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;align-items:center;gap:16px;padding:18px 44px 18px 22px;color:var(--ink);background:linear-gradient(90deg,var(--p1),#ffe1ed);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 50%,100% 100%,0 100%)}
+.li:nth-child(even) .bar{padding:18px 22px 18px 44px;background:linear-gradient(270deg,var(--p1),#ffe1ed);clip-path:polygon(26px 50%,0 0,100% 0,100% 100%,0 100%);flex-direction:row-reverse;text-align:right}
+.bar:focus-visible{outline:3px solid var(--p3)}
+.n{flex:none;width:58px;height:58px;background:var(--p3);color:#fff;clip-path:var(--star);display:grid;place-items:center;font-weight:800;padding-top:6px}
+.bar small{display:block;color:var(--mute);font-size:.85rem}
+.bar strong{font-size:1.2rem}
+.back{all:unset;cursor:pointer;display:inline-block;position:relative;background:var(--p3);color:#fff;font-weight:700;padding:9px 22px 9px 30px;margin-bottom:34px;clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%)}
+.back:hover{background:var(--p4)}
+.panel{position:relative;background:var(--cream);border:2px solid var(--line);border-radius:10px 28px 10px 28px;padding:52px 28px 28px;box-shadow:8px 8px 0 var(--p1);max-width:720px;margin:0 auto}
+.panel::before{content:"";position:absolute;left:14px;right:14px;top:10px;height:12px;background:var(--sq) repeat-x}
+.panel .ribbon{position:absolute;left:50%;top:-24px;transform:translateX(-50%);white-space:nowrap;margin:0}
+.panel .ribbon:not(.x){}
+.sub{text-align:center;color:var(--mute);margin:12px 0 16px}
+.note{background:#fff;border:2px dashed var(--p2);border-radius:14px;padding:12px 16px;color:var(--mute);font-size:.93rem;margin-bottom:18px}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:12px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:.88rem;flex:1 1 150px}
+input,select{font:inherit;font-weight:400;padding:12px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus{outline:3px solid var(--p1);border-color:var(--p3)}
+.go{font:inherit;font-weight:700;color:#fff;border:0;cursor:pointer;padding:13px 30px;background:var(--p3);width:100%;box-shadow:0 5px 0 var(--p4);border-radius:12px;transition:transform .15s,box-shadow .15s}
+.row .go{width:auto;flex:none}
+.go:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--p4)}
+.go.alt{background:#fff;color:var(--p4);border:2px solid var(--p3);box-shadow:0 5px 0 var(--p2)}
+.out{margin-top:18px;padding:16px 18px;background:#fff;border-left:8px solid var(--p3);border-radius:6px 16px 16px 6px;font-weight:700;color:var(--p4);white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace}
+.out:empty{display:none}
+.out.err{color:#c0262d;border-left-color:#c0262d}
+.scroll{overflow-x:auto;margin-top:14px;border-radius:12px;border:2px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:#fff}
+th,td{padding:10px 12px;text-align:right;white-space:nowrap;border-bottom:1px solid #ffe3ee}
+th{background:var(--p3);color:#fff}
+th:nth-child(-n+2),td:nth-child(-n+2){text-align:left}
+td.net{color:var(--p4);font-weight:800}
+footer{text-align:center;color:var(--mute);font-size:.85rem;margin-top:40px}
+[hidden]{display:none!important}
+@media (max-width:600px){.about{flex-direction:column;text-align:center}.li:nth-child(odd){margin-right:0}.li:nth-child(even){margin-left:0}.panel{padding:52px 18px 22px}}
+</style>
+</head>
+<body>
+<div class="deco" aria-hidden="true">
+<i class="st" style="left:5%;top:10%;width:34px;height:34px"></i>
+<i class="st" style="left:90%;top:8%;width:46px;height:46px;animation-delay:1s"></i>
+<i class="st" style="left:92%;top:48%;width:26px;height:26px;animation-delay:2s"></i>
+<i class="st" style="left:3%;top:55%;width:42px;height:42px;animation-delay:.5s"></i>
+<i class="st" style="left:12%;top:90%;width:30px;height:30px;animation-delay:1.5s"></i>
+<i class="st" style="left:85%;top:88%;width:38px;height:38px;animation-delay:2.5s"></i>
+<i class="st" style="left:50%;top:2%;width:20px;height:20px;animation-delay:3s"></i>
+<i class="sw" style="left:2%;top:30%"></i>
+<i class="sw" style="left:84%;top:28%;animation-delay:1s"></i>
+<i class="sw" style="left:6%;top:75%;animation-delay:2s"></i>
+<i class="sw" style="left:80%;top:68%;animation-delay:3s"></i>
+</div>
+
+<div class="wrap">
+<header class="hero">
+<span class="ribbon">CS-1130 Introduction To Computing</span>
+<h1>Elyza's <span>Personal Website</span></h1>
+<div class="wave"></div>
+<div class="about">
+<div class="badge" aria-hidden="true">E</div>
+<div>
+<b>About the Owner</b>
+<p>Hi! I am Elyza Mae N. Niegas, a BS Data Science student from Ateneo de Davao University. Currently exploring web development through HTML, CSS, and JavaScript, I enjoy turning ideas into creative projects while continuously learning new skills and discovering opportunities to grow in the world of technology.</p>
+</div>
+</div>
+</header>
+
+<main>
+<div id="menu">
+<div class="pick">Pick an assignment</div>
+<div class="list">
+<div class="li"><button class="bar" onclick="openA(1)"><span class="n">01</span><span><small>Assignment #1</small><strong>Conversion</strong></span></button></div>
+<div class="li"><button class="bar" onclick="openA(2)"><span class="n">02</span><span><small>Assignment #2</small><strong>Income Tax</strong></span></button></div>
+<div class="li"><button class="bar" onclick="openA(3)"><span class="n">03</span><span><small>Assignment #3</small><strong>Natural Numbers</strong></span></button></div>
+<div class="li"><button class="bar" onclick="openA(4)"><span class="n">04</span><span><small>Assignment #4</small><strong>Simple Payroll</strong></span></button></div>
+</div>
+</div>
+
+<div id="view" hidden>
+<button class="back" onclick="closeA()">All assignments</button>
+
+<section class="panel" id="p1" hidden>
+<span class="ribbon">Assignment #1 · Conversion</span>
+<p class="sub">Convert temperature and length units</p>
+<div class="note">Type a number, choose a conversion, then press the button.</div>
+<div class="row">
+<label>Value<input id="cv" type="number" step="any" placeholder="Example: 36.5"></label>
+<label>Convert<select id="ct">
+<option value="c2f">Celsius to Fahrenheit</option>
+<option value="f2c">Fahrenheit to Celsius</option>
+<option value="m2f">Meters to Feet</option>
+<option value="f2m">Feet to Meters</option>
+</select></label>
+</div>
+<button class="go" onclick="convert()">★ Convert</button>
+<div class="out" id="cout"></div>
+</section>
+
+<section class="panel" id="p2" hidden>
+<span class="ribbon">Assignment #2 · Income Tax</span>
+<p class="sub">Compute tax from net taxable income</p>
+<div class="note">Type your net taxable income in pesos. Earnings up to ₱250,000 are not taxed, while anything higher pays a base tax plus a percentage of the amount above its bracket's starting point.</div>
+<label>Net taxable income (₱)<input id="ti" type="number" min="0" step="any" placeholder="Example: 520000"></label>
+<button class="go" style="margin-top:12px" onclick="tax()">★ Calculate income tax</button>
+<div class="out" id="tout"></div>
+</section>
+
+<section class="panel" id="p3" hidden>
+<span class="ribbon">Assignment #3 · Natural Numbers</span>
+<p class="sub">Factorial, sum, and average of the first N numbers</p>
+<div class="note">Enter a whole number N from 1 to 100 to see the results.</div>
+<label>N<input id="n" type="number" min="1" max="100" step="1" placeholder="Example: 5"></label>
+<button class="go" style="margin-top:12px" onclick="loops()">★ Calculate</button>
+<div class="out" id="lout"></div>
+</section>
+
+<section class="panel" id="p4" hidden style="max-width:900px">
+<span class="ribbon">Assignment #4 · Simple Payroll</span>
+<p class="sub">Add or delete employees in the payroll list</p>
+<div class="note">Gross Pay = Days Worked × Daily Rate. Net Pay = Gross Pay − Deduction.</div>
+<div class="row">
+<label style="flex-basis:200px">Employee Name<input id="pn" type="text" placeholder="Full name"></label>
+<label>Days Worked<input id="pd" type="number" min="0" step="any"></label>
+<label>Daily Rate<input id="pr" type="number" min="0" step="any"></label>
+<label>Deduction Amount<input id="px" type="number" min="0" step="any"></label>
+<button class="go" onclick="addEmp()">Add</button>
+</div>
+<div class="row">
+<label>Line No. to Delete<input id="pl" type="number" min="1" step="1"></label>
+<button class="go alt" onclick="delEmp()">Delete</button>
+</div>
+<div class="out" id="pout"></div>
+<div class="scroll"><table id="pt">
+<thead><tr><th>No.</th><th>Employee Name</th><th>Days Worked</th><th>Daily Rate</th><th>Gross Pay</th><th>Deduction</th><th>Net Pay</th></tr></thead>
+<tbody></tbody>
+</table></div>
+</section>
+</div>
+</main>
+<footer>★ Elyza Mae N. Niegas · CS-1130 · Sem 1 2026 ★</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const money=n=>n.toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const show=(id,msg,err)=>{const o=$(id);o.textContent=msg;o.classList.toggle('err',!!err)};
+
+function openA(n){
+  $('menu').hidden=true;$('view').hidden=false;
+  for(let i=1;i<=4;i++)$('p'+i).hidden=(i!==n);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function closeA(){
+  $('view').hidden=true;$('menu').hidden=false;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function convert(){
+  const v=parseFloat($('cv').value),t=$('ct').value;
+  if(isNaN(v))return show('cout','Please enter a valid number.',true);
+  const map={c2f:[v*9/5+32,'°C','°F'],f2c:[(v-32)*5/9,'°F','°C'],m2f:[v*3.28084,'m','ft'],f2m:[v/3.28084,'ft','m']};
+  const r=map[t];
+  show('cout',v+' '+r[1]+' = '+r[0].toFixed(2)+' '+r[2]);
+}
+
+function tax(){
+  const ti=parseFloat($('ti').value);
+  if(isNaN(ti)||ti<0)return show('tout','Please enter a valid taxable income.',true);
+  let t;
+  if(ti<=250000)t=0;
+  else if(ti<=400000)t=(ti-250000)*0.20;
+  else if(ti<=800000)t=30000+(ti-400000)*0.25;
+  else if(ti<=2000000)t=130000+(ti-800000)*0.30;
+  else if(ti<=8000000)t=490000+(ti-2000000)*0.32;
+  else t=2410000+(ti-8000000)*0.35;
+  show('tout','Taxable Income: ₱'+money(ti)+'\nIncome Tax:     ₱'+money(t));
+}
+
+function loops(){
+  const N=parseInt($('n').value,10);
+  if(!Number.isInteger(N)||N<1||N>100)return show('lout','Enter a whole number from 1 to 100.',true);
+  let f=1n,i=1;
+  while(i<=N){f*=BigInt(i);i++;}
+  let s=0,j=1;
+  do{s+=j;j++;}while(j<=N);
+  let total=0;
+  for(let k=1;k<=N;k++){total+=k;}
+  const avg=total/N;
+  show('lout','N = '+N+'\nFactorial: '+f.toString()+'\nSum:       '+s+'\nAverage:   '+avg);
+}
+
+const emps=[];
+function render(){
+  const tb=document.querySelector('#pt tbody');tb.innerHTML='';
+  emps.forEach((e,i)=>{
+    const tr=document.createElement('tr');
+    const gross=e.days*e.rate,net=gross-e.ded;
+    [i+1,e.name,e.days,money(e.rate),money(gross),money(e.ded),money(net)].forEach((v,c)=>{
+      const td=document.createElement('td');td.textContent=v;if(c===6)td.className='net';tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  });
+}
+function addEmp(){
+  const name=$('pn').value.trim(),days=parseFloat($('pd').value),rate=parseFloat($('pr').value),ded=parseFloat($('px').value);
+  if(!name||[days,rate,ded].some(x=>isNaN(x)||x<0))return show('pout','Fill in all fields with valid, non-negative values.',true);
+  emps.push({name,days,rate,ded});render();
+  show('pout','Added '+name+'.');
+  ['pn','pd','pr','px'].forEach(id=>$(id).value='');
+}
+function delEmp(){
+  const n=parseInt($('pl').value,10);
+  if(!Number.isInteger(n)||n<1||n>emps.length)return show('pout','Enter a valid line number (1 to '+emps.length+').',true);
+  const [r]=emps.splice(n-1,1);render();$('pl').value='';
+  show('pout','Deleted line '+n+' ('+r.name+').');
+}
+</script>
+</body>
+</html>
